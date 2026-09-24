@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.navbar {
+    background: rgba(7, 17, 31, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+.navbar-brand,
+.navbar-brand span,
+.navbar-nav .nav-link {
+    color: #edf5ff !important;
+}
+
+.navbar-nav .nav-link {
+    opacity: 0.8;
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    opacity: 1;
+    color: #8ec5ff !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.navbar-toggler-icon {
+    filter: brightness(2);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(180deg, #07111f 0%, #0f172a 100%);
+    color: #e5ecff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+section {
+    padding: 100px 0 50px;
+}
+
+#hero,
+#about,
+#service,
+#recent,
+#faq {
+    background: rgba(11, 19, 31, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 24px;
+    margin: 24px auto;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.45);
+    padding: 72px 24px;
+}
+
+#hero {
+    padding-top: 3rem;
+}
+
+.hero {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hero h1,
+#about h1,
+#service h1,
+#recent h1,
+#faq h1 {
+    color: #f8fbff;
+}
+
+.hero p,
+#about p,
+#service p,
+#recent p,
+#faq p,
+#faq .accordion-body,
+.card-text,
+.card small,
+.card-title,
+.card a {
+    color: #dfe9ff;
+}
+
+.hero-image,
+.about-image {
+    width: min(100%, 500px);
+    filter: drop-shadow(0 20px 30px rgba(59, 130, 246, 0.25));
+}
+
+.navbar-nav {
+    gap: 1.5rem;
+}
+
+.card {
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+    color: #eef4ff;
+}
+
+.card-body {
+    background: rgba(15, 23, 42, 0.8);
+    color: #eef4ff;
+}
+
+.card .btn-primary {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border: none;
+}
+
+.kategori {
+    background: rgba(37, 99, 235, 0.95);
+    border-radius: 10px 0 14px 0;
+}
+
+.accordion-item {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    color: #eef4ff;
+}
+
+.accordion-button {
+    background: rgba(15, 23, 42, 0.9);
+    color: #f8fbff;
+    font-weight: 600;
+}
+
+.accordion-button:not(.collapsed) {
+    background: rgba(37, 99, 235, 0.18);
+    color: #ffffff;
+    box-shadow: none;
+}
+
+.accordion-button::after {
+    filter: brightness(2);
+}
+
+.accordion-body {
+    background: rgba(15, 23, 42, 0.7);
+    color: #dfe9ff;
+}
+
+.text-primary,
+.text-primary-emphasis {
+    color: #8ec5ff !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border: none;
+}
+
+.btn-outline-primary {
+    border-color: rgba(142, 197, 255, 0.9);
+    color: #dfe9ff;
+}
+
+.btn-outline-primary:hover {
+    background: rgba(142, 197, 255, 0.15);
+    color: white;
+}
+
+@media (max-width: 991.98px) {
+    section {
+        padding: 80px 0 40px;
+    }
+
+    .hero {
+        gap: 2rem;
+    }
+
+    #hero .hero .col {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    section {
+        padding: 60px 0 30px;
+    }
+
+    .navbar-nav {
+        gap: 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .accordion-button {
+        font-size: 0.95rem;
+    }
+}
+
+.site-footer {
+    background: linear-gradient(180deg, rgba(7, 17, 31, 0.96), rgba(15, 23, 42, 1));
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: 0 -12px 30px rgba(15, 23, 42, 0.35);
+    padding-top: 24px;
+    margin-top: 40px;
+}
+
+.site-footer .nav-link,
+.site-footer p,
+.site-footer h3,
+.site-footer h4,
+.site-footer a {
+    color: #edf5ff !important;
+}
+
+.site-footer .nav-link:hover {
+    color: #8ec5ff !important;
+}
+
+.copyright {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.hero .col:nth-child(1) {
+  --animation-delay: 0.5s;
+}
+
+.reports-page {
+    padding: 34px 0 46px;
+}
+
+.reports-heading {
+    margin-bottom: 18px;
+}
+
+.reports-heading h1 {
+    margin-bottom: 4px;
+    font-size: clamp(1.55rem, 3vw, 2.15rem);
+}
+
+.reports-heading p {
+    font-size: 0.78rem;
+}
+
+.reports-toolbar {
+    max-width: 920px;
+    margin: 0 auto 18px;
+}
+
+.reports-toolbar .form-control,
+.reports-toolbar .form-select,
+.reports-toolbar .btn {
+    min-height: 34px;
+    font-size: 0.75rem;
+}
+
+.reports-grid {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.reports-grid .card {
+    border-radius: 4px;
+}
+
+.report-image-wrap {
+    position: relative;
+}
+
+.report-image-wrap img {
+    width: 100%;
+    height: 142px;
+    object-fit: cover;
+}
+
+.reports-grid .card-body {
+    padding: 0.7rem;
+}
+
+.reports-grid .card-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.reports-grid .card-body small,
+.reports-grid .card-text {
+    font-size: 0.68rem;
+}
+
+.reports-grid .btn {
+    font-size: 0.65rem;
+}
+
+.reports-grid .kategori {
+    border-radius: 0 0 8px 0;
+    font-size: 0.62rem;
+}
+
+.reports-pagination {
+    margin: 24px 0 0;
+}
+
+.report-detail-page {
+    padding: 42px 0 70px;
+}
+
+.report-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #8ec5ff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 18px;
+}
+
+.report-back-link:hover {
+    color: #ffffff;
+}
+
+.report-detail-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    background: rgba(11, 19, 31, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.45);
+}
+
+.report-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.report-detail-header .kategori {
+    border-radius: 10px 0 10px 0;
+    background: rgba(37, 99, 235, 0.95);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.report-detail-title {
+    color: #f8fbff;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin: 1rem 0 0.75rem;
+}
+
+.report-meta,
+.report-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: #aebed9;
+    font-size: 0.78rem;
+}
+
+.report-meta i,
+.report-steps i {
+    color: #8ec5ff;
+    margin-right: 0.35rem;
+}
+
+.report-status,
+.report-progress-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid rgba(96, 165, 250, 0.4);
+    border-radius: 999px;
+    color: #bfdbfe;
+    background: rgba(37, 99, 235, 0.14);
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.report-detail-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.report-detail-copy {
+    padding: 0.5rem 0;
+}
+
+.report-eyebrow {
+    color: #8ec5ff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.report-detail-copy h2 {
+    color: #f8fbff;
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    line-height: 1.35;
+    margin-bottom: 1rem;
+}
+
+.report-detail-copy > p:not(.report-eyebrow) {
+    color: #dfe9ff;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.report-info-list {
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.report-info-list div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    font-size: 0.78rem;
+}
+
+.report-info-list span {
+    color: #aebed9;
+}
+
+.report-info-list strong {
+    color: #f8fbff;
+    text-align: right;
+}
+
+.report-progress {
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.report-progress .progress {
+    height: 0.45rem;
+    background: rgba(148, 163, 184, 0.2);
+}
+
+.report-progress .progress-bar {
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+}
+
+.report-steps {
+    justify-content: space-between;
+    margin-top: 0.7rem;
+}
+
+.report-steps .is-complete,
+.report-steps .is-current {
+    color: #dfe9ff;
+}
+
+.report-detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.report-detail-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media (max-width: 767.98px) {
+    .reports-page {
+        padding-top: 24px;
+    }
+
+    .report-image-wrap img {
+        height: 180px;
+    }
+
+    .report-detail-header {
+        flex-direction: column;
+    }
+
+    .report-detail-page {
+        padding-top: 28px;
+    }
+
+    .report-status {
+        align-self: flex-start;
+    }
+}

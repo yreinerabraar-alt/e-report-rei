@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | E-report IDN</title>
+    <link rel="shortcut icon" href="./assets/images/idnlogo.png" type="image/x-icon" />
+
+    <!-- js bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <!--aos js-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    </body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+    crossorigin="anonymous"></script>
+<!-- css bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<!-- my css -->
+<link rel="stylesheet" href="./assets/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+<!-- aos css -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg py-3 animate__animated animate__fadeInDown">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <img src="./assets/images/images (3).png" alt="Logo" width="26"
+                    class="d-inline-block align-text-top rounded">
+                <span class="fw-bold">IDN E-Report</span>
+            </a>
+            <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-4 text-center pt-4 pt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Recent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--all reports-->
+    <main id="all-reports" class="reports-page">
+        <div class="container">
+            <div class="reports-heading text-center">
+                <h1 class="fw-bold text-primary-emphasis">All Reports</h1>
+                <p class="text-muted mb-0">Lihat semua laporan yang telah dikirim, filter berdasarkan kategori atau cari
+                    laporan tertentu.</p>
+            </div>
+
+            <div class="reports-toolbar row g-2 align-items-center">
+                <div class="col-md-5">
+                    <input type="search" class="form-control shadow-sm" placeholder="Cari laporan..."
+                        aria-label="Cari laporan">
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select shadow-sm" aria-label="Filter kategori">
+                        <option selected>Filter Kategori</option>
+                        <option value="fasilitas">Fasilitas</option>
+                        <option value="non-akademik">Non-Akademik</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select shadow-sm" aria-label="Urutkan laporan">
+                        <option selected>Urutkan</option>
+                        <option value="newest">Terbaru</option>
+                        <option value="oldest">Terlama</option>
+                        <option value="popular">Terpopuler</option>
+                    </select>
+                </div>
+                <div class="col-md-1 d-grid">
+                    <button type="button" class="btn btn-primary">Filter</button>
+                </div>
+            </div>
+
+            <div class="row g-3 reports-grid">
+                <div class="col-md-4">
+                    <article class="card h-100">
+                        <div class="report-image-wrap">
+                            <img src="./assets/images/ac.jpg" class="card-img-top" alt="Laporan fasilitas sekolah">
+                            <span class="kategori position-absolute top-0 start-0 px-2 py-1 small">Akademik</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Card title</h5>
+                            <small class="mb-2">by John Doe 2 hours ago</small>
+                            <p class="card-text small">Some quick example text to build on the card title and make up
+                                the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary btn-sm mt-auto align-self-start">Go somewhere</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article class="card h-100">
+                        <div class="report-image-wrap">
+                            <img src="./assets/images/ac.jpg" class="card-img-top" alt="Laporan fasilitas sekolah">
+                            <span class="kategori position-absolute top-0 start-0 px-2 py-1 small">Akademik</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Card title</h5>
+                            <small class="mb-2">by John Doe 2 hours ago</small>
+                            <p class="card-text small">Some quick example text to build on the card title and make up
+                                the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary btn-sm mt-auto align-self-start">Go somewhere</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article class="card h-100">
+                        <div class="report-image-wrap">
+                            <img src="./assets/images/ac.jpg" class="card-img-top" alt="Laporan fasilitas sekolah">
+                            <span class="kategori position-absolute top-0 start-0 px-2 py-1 small">Akademik</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Card title</h5>
+                            <small class="mb-2">by John Doe 2 hours ago</small>
+                            <p class="card-text small">Some quick example text to build on the card title and make up
+                                the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary btn-sm mt-auto align-self-start">Go somewhere</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="reports-pagination" aria-label="Page navigation example">
+                <ul class="pagination pagination-sm justify-content-center mb-0">
+                    <li class="nav-link text-primary"><a class="page-link" href="index.html#hero">home</a></li>
+                    <li class="nav-link text-primary"><a class="page-link" href="index.html#about">about</a></li>
+                    <li class="nav-link text-primary"><a class="page-link" href="index.html#service">service</a></li>
+                    <li class="nav-link text-primary"><a class="page-link" href="index.html#recent">recent</a></li>
+                    <li class="nav-link text-primary"><a class="page-link" href="index.html#faq">faq</a></li>
+                </ul>
+            </nav>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row justify-content-between row-gap-4">
+                <div class="col-md-4 text-light mt-4">
+                    <div class="d-flex gap-3 align-items-center justify-content-center justify-content-lg-start">
+                        <img src="./assets/images/idnlogo.png" alt="logo" width="30"
+                            class="d-inline-block align-text-top rounded" />
+                        <h3 class="fw-bold m-0">E-Report</h3>
+                    </div>
+                    <p class="lh-lg opacity-75 mt-3">Sampaikan setiap kekurangan sarana dan prasarana sekolah secara
+                        transparan. Laporan Anda akan ditindaklanjuti untuk perbaikan yang lebih baik.</p>
+                </div>
+                <div class="col-md-2 d-flex flex-column text-light gap-2 mt-4">
+                    <h4 class="fw-bold mb-3">Menu</h4>
+                    <a href="index.html#hero" class="nav-link text-light opacity-75">Home</a>
+                    <a href="index.html#about" class="nav-link text-light opacity-75">About</a>
+                    <a href="index.html#service" class="nav-link text-light opacity-75">Services</a>
+                    <a href="index.html#recent" class="nav-link text-light opacity-75">Contact</a>
+                    <a href="index.html#faq" class="nav-link text-light opacity-75">FAQ</a>
+                </div>
+                <div class="col-md-4 d-flex flex-column text-light gap-2 mt-4">
+                    <h4 class="fw-bold mb-3">Contact</h4>
+                    <a href="" class="nav-link text-light opacity-75 d-block mb-2">
+                        <i class="fa-solid fa-envelope"></i>
+                        reikeren@gmail.com
+                    </a>
+                    <a href="" class="nav-link text-light opacity-75 d-block mb-2">
+                        <i class="fa-solid fa-phone"></i>
+                        0676767676767
+                    </a>
+                    <a href="" class="nav-link text-light opacity-75 d-block mb-2">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Jl.Milano Raya, BSD City
+                    </a>
+                </div>
+            </div>
+            <div class="copyright text-center py-3 mt-4 text-light">
+                <p class="m-0"> &copy; Copyright by <span class="fw-bold">Rei</span> 2026, All right reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- js bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <!--aos js-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    
