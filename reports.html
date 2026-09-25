@@ -1,225 +1,378 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | E-report IDN</title>
-    <link rel="shortcut icon" href="./assets/images/idnlogo.png" type="image/x-icon" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semua Laporan | IDN E-Report</title>
+  <meta name="description" content="Lihat seluruh laporan yang telah masuk ke IDN E-Report. Filter berdasarkan kategori, cari laporan tertentu, atau tambahkan laporan baru.">
+  <link rel="shortcut icon" href="./assets/images/idnlogo.png" type="image/x-icon">
 
-    <!-- js bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <!--aos js-->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-    </body>
-
-</html>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-    crossorigin="anonymous"></script>
-<!-- css bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-<!-- my css -->
-<link rel="stylesheet" href="./assets/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/style.css">
 </head>
-<!-- aos css -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
 
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg py-3 animate__animated animate__fadeInDown">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <img src="./assets/images/images (3).png" alt="Logo" width="26"
-                    class="d-inline-block align-text-top rounded">
-                <span class="fw-bold">IDN E-Report</span>
-            </a>
-            <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+  <nav class="navbar navbar-expand-lg animate__animated animate__fadeInDown" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/images/idnlogo.png" alt="IDN Logo" width="28">
+        IDN E-Report <span class="brand-dot"></span>
+      </a>
+      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-1 text-center pt-4 pt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#service">Services</a></li>
+          <li class="nav-item"><a class="nav-link active" href="reports.html">Reports</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#faq">FAQ</a></li>
+          <li class="nav-item ms-lg-2">
+            <button class="btn btn-primary btn-sm px-3" data-bs-toggle="modal" data-bs-target="#reportModal" id="nav-add-report">
+              <i class="fa-solid fa-plus me-1"></i>Tambah Laporan
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-4 text-center pt-4 pt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Recent</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">FAQ</a>
-                    </li>
-                </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ───────────────────────────────────────────────── -->
+  <main class="reports-page" id="all-reports">
+    <div class="container">
+
+      <!-- Page Header -->
+      <div class="reports-page-header" data-aos="fade-up" data-aos-duration="700">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb justify-content-center" style="font-size:0.78rem;">
+            <li class="breadcrumb-item"><a href="index.html" style="color:var(--blue-light);text-decoration:none;">Home</a></li>
+            <li class="breadcrumb-item active" style="color:var(--text-muted);">Semua Laporan</li>
+          </ol>
+        </nav>
+        <span class="section-badge">Laporan Publik</span>
+        <h1>Semua Laporan</h1>
+        <p>Lihat seluruh laporan yang telah masuk, filter berdasarkan kategori, atau tambahkan laporan baru.</p>
+      </div>
+
+      <!-- Add Report Button -->
+      <div class="mb-3" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+        <button class="btn-add-report" data-bs-toggle="modal" data-bs-target="#reportModal" id="add-report-btn">
+          <i class="fa-solid fa-plus"></i>
+          Tambah Laporan
+        </button>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="reports-toolbar" data-aos="fade-up" data-aos-duration="700" data-aos-delay="150">
+        <div class="row g-2 align-items-center">
+          <div class="col-md-5">
+            <label class="visually-hidden" for="search-input">Cari laporan</label>
+            <div class="input-group">
+              <span class="input-group-text" style="background:rgba(7,15,28,0.8);border-color:var(--border-subtle);color:var(--text-muted);">
+                <i class="fa-solid fa-magnifying-glass" style="font-size:0.75rem;"></i>
+              </span>
+              <input id="search-input" type="search" class="form-control"
+                placeholder="Cari laporan..." autocomplete="off">
             </div>
+          </div>
+          <div class="col-md-3">
+            <label class="visually-hidden" for="category-filter">Filter kategori</label>
+            <select id="category-filter" class="form-select">
+              <option value="all">Semua Kategori</option>
+              <option value="akademik">Akademik</option>
+              <option value="fasilitas">Fasilitas</option>
+              <option value="non-akademik">Non-Akademik</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="visually-hidden" for="sort-filter">Urutkan laporan</label>
+            <select id="sort-filter" class="form-select">
+              <option value="newest">Terbaru</option>
+              <option value="oldest">Terlama</option>
+              <option value="popular">Terpopuler</option>
+            </select>
+          </div>
+          <div class="col-md-1 d-grid">
+            <button id="filter-button" type="button" class="btn btn-primary" style="height:38px;font-size:0.78rem;">
+              <i class="fa-solid fa-filter"></i>
+            </button>
+          </div>
         </div>
-    </nav>
+      </div>
 
-    <!--all reports-->
-    <main id="all-reports" class="reports-page">
-        <div class="container">
-            <div class="reports-heading text-center">
-                <h1 class="fw-bold text-primary-emphasis">All Reports</h1>
-                <p class="text-muted mb-0">Lihat semua laporan yang telah dikirim, filter berdasarkan kategori atau cari
-                    laporan tertentu.</p>
+      <!-- Results Count -->
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <p class="mb-0" id="results-count" style="font-size:0.78rem;color:var(--text-muted);">
+          Menampilkan <span id="visible-count">3</span> laporan
+        </p>
+      </div>
+
+      <!-- Reports Grid -->
+      <div class="row g-3 reports-grid" id="reports-grid">
+
+        <!-- Report 1 -->
+        <div class="col-md-4 report-item" data-category="fasilitas" data-date="2026-09-25" data-popularity="10" data-title="Kerusakan AC ruang kelas">
+          <article class="card h-100">
+            <div class="report-image-wrap position-relative">
+              <img src="./assets/images/ac.jpg" class="card-img-top" alt="AC ruang kelas rusak">
+              <span class="kategori position-absolute top-0 start-0">Fasilitas</span>
             </div>
-
-            <div class="reports-toolbar row g-2 align-items-center">
-                <div class="col-md-5">
-                    <input type="search" class="form-control shadow-sm" placeholder="Cari laporan..."
-                        aria-label="Cari laporan">
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select shadow-sm" aria-label="Filter kategori">
-                        <option selected>Filter Kategori</option>
-                        <option value="fasilitas">Fasilitas</option>
-                        <option value="non-akademik">Non-Akademik</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <select class="form-select shadow-sm" aria-label="Urutkan laporan">
-                        <option selected>Urutkan</option>
-                        <option value="newest">Terbaru</option>
-                        <option value="oldest">Terlama</option>
-                        <option value="popular">Terpopuler</option>
-                    </select>
-                </div>
-                <div class="col-md-1 d-grid">
-                    <button type="button" class="btn btn-primary">Filter</button>
-                </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Kerusakan AC Ruang Kelas</h5>
+              <small class="mb-2">Oleh <a href="detail-report.html">John Doe</a> &bull; 2 jam lalu</small>
+              <p class="card-text">AC di ruang kelas tidak dapat digunakan sehingga ruangan terasa panas dan tidak nyaman untuk belajar.</p>
+              <a href="detail-report.html" class="btn btn-primary btn-sm mt-auto align-self-start" id="report-detail-1">
+                Lihat Laporan <i class="fa-solid fa-arrow-right ms-1"></i>
+              </a>
             </div>
-
-            <div class="row g-3 reports-grid">
-                <div class="col-md-4">
-                    <article class="card h-100">
-                        <div class="report-image-wrap">
-                            <img src="./assets/images/ac.jpg" class="card-img-top" alt="Laporan fasilitas sekolah">
-                            <span class="kategori position-absolute top-0 start-0 px-2 py-1 small">Akademik</span>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Card title</h5>
-                            <small class="mb-2">by John Doe 2 hours ago</small>
-                            <p class="card-text small">Some quick example text to build on the card title and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary btn-sm mt-auto align-self-start">Go somewhere</a>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="card h-100">
-                        <div class="report-image-wrap">
-                            <img src="./assets/images/ac.jpg" class="card-img-top" alt="Laporan fasilitas sekolah">
-                            <span class="kategori position-absolute top-0 start-0 px-2 py-1 small">Akademik</span>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Card title</h5>
-                            <small class="mb-2">by John Doe 2 hours ago</small>
-                            <p class="card-text small">Some quick example text to build on the card title and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary btn-sm mt-auto align-self-start">Go somewhere</a>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-md-4">
-                    <article class="card h-100">
-                        <div class="report-image-wrap">
-                            <img src="./assets/images/ac.jpg" class="card-img-top" alt="Laporan fasilitas sekolah">
-                            <span class="kategori position-absolute top-0 start-0 px-2 py-1 small">Akademik</span>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Card title</h5>
-                            <small class="mb-2">by John Doe 2 hours ago</small>
-                            <p class="card-text small">Some quick example text to build on the card title and make up
-                                the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary btn-sm mt-auto align-self-start">Go somewhere</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Pagination -->
-            <nav class="reports-pagination" aria-label="Page navigation example">
-                <ul class="pagination pagination-sm justify-content-center mb-0">
-                    <li class="nav-link text-primary"><a class="page-link" href="index.html#hero">home</a></li>
-                    <li class="nav-link text-primary"><a class="page-link" href="index.html#about">about</a></li>
-                    <li class="nav-link text-primary"><a class="page-link" href="index.html#service">service</a></li>
-                    <li class="nav-link text-primary"><a class="page-link" href="index.html#recent">recent</a></li>
-                    <li class="nav-link text-primary"><a class="page-link" href="index.html#faq">faq</a></li>
-                </ul>
-            </nav>
+          </article>
         </div>
-    </main>
 
-    <!-- footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row justify-content-between row-gap-4">
-                <div class="col-md-4 text-light mt-4">
-                    <div class="d-flex gap-3 align-items-center justify-content-center justify-content-lg-start">
-                        <img src="./assets/images/idnlogo.png" alt="logo" width="30"
-                            class="d-inline-block align-text-top rounded" />
-                        <h3 class="fw-bold m-0">E-Report</h3>
-                    </div>
-                    <p class="lh-lg opacity-75 mt-3">Sampaikan setiap kekurangan sarana dan prasarana sekolah secara
-                        transparan. Laporan Anda akan ditindaklanjuti untuk perbaikan yang lebih baik.</p>
-                </div>
-                <div class="col-md-2 d-flex flex-column text-light gap-2 mt-4">
-                    <h4 class="fw-bold mb-3">Menu</h4>
-                    <a href="index.html#hero" class="nav-link text-light opacity-75">Home</a>
-                    <a href="index.html#about" class="nav-link text-light opacity-75">About</a>
-                    <a href="index.html#service" class="nav-link text-light opacity-75">Services</a>
-                    <a href="index.html#recent" class="nav-link text-light opacity-75">Contact</a>
-                    <a href="index.html#faq" class="nav-link text-light opacity-75">FAQ</a>
-                </div>
-                <div class="col-md-4 d-flex flex-column text-light gap-2 mt-4">
-                    <h4 class="fw-bold mb-3">Contact</h4>
-                    <a href="" class="nav-link text-light opacity-75 d-block mb-2">
-                        <i class="fa-solid fa-envelope"></i>
-                        reikeren@gmail.com
-                    </a>
-                    <a href="" class="nav-link text-light opacity-75 d-block mb-2">
-                        <i class="fa-solid fa-phone"></i>
-                        0676767676767
-                    </a>
-                    <a href="" class="nav-link text-light opacity-75 d-block mb-2">
-                        <i class="fa-solid fa-location-dot"></i>
-                        Jl.Milano Raya, BSD City
-                    </a>
-                </div>
+        <!-- Report 2 -->
+        <div class="col-md-4 report-item" data-category="akademik" data-date="2026-09-24" data-popularity="7" data-title="Papan tulis rusak">
+          <article class="card h-100">
+            <div class="report-image-wrap position-relative">
+              <img src="./assets/images/ac.jpg" class="card-img-top" alt="Papan tulis rusak">
+              <span class="kategori position-absolute top-0 start-0" style="background:linear-gradient(135deg,rgba(99,102,241,0.9),rgba(139,92,246,0.85));">Akademik</span>
             </div>
-            <div class="copyright text-center py-3 mt-4 text-light">
-                <p class="m-0"> &copy; Copyright by <span class="fw-bold">Rei</span> 2026, All right reserved.</p>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Papan Tulis Rusak</h5>
+              <small class="mb-2">Oleh <a href="detail-report.html">Jane Doe</a> &bull; 1 hari lalu</small>
+              <p class="card-text">Papan tulis di ruang kelas mengalami kerusakan dan sulit digunakan untuk proses belajar mengajar.</p>
+              <a href="detail-report.html" class="btn btn-primary btn-sm mt-auto align-self-start" id="report-detail-2">
+                Lihat Laporan <i class="fa-solid fa-arrow-right ms-1"></i>
+              </a>
             </div>
+          </article>
         </div>
-    </footer>
 
-    <!-- js bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <!--aos js-->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+        <!-- Report 3 -->
+        <div class="col-md-4 report-item" data-category="non-akademik" data-date="2026-09-20" data-popularity="4" data-title="Lampu koridor mati">
+          <article class="card h-100">
+            <div class="report-image-wrap position-relative">
+              <img src="./assets/images/ac.jpg" class="card-img-top" alt="Lampu koridor mati">
+              <span class="kategori position-absolute top-0 start-0" style="background:linear-gradient(135deg,rgba(139,92,246,0.9),rgba(168,85,247,0.85));">Non-Akademik</span>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Lampu Koridor Mati</h5>
+              <small class="mb-2">Oleh <a href="detail-report.html">Alex Smith</a> &bull; 5 hari lalu</small>
+              <p class="card-text">Beberapa lampu di koridor sekolah tidak menyala sehingga membahayakan keselamatan siswa.</p>
+              <a href="detail-report.html" class="btn btn-primary btn-sm mt-auto align-self-start" id="report-detail-3">
+                Lihat Laporan <i class="fa-solid fa-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </article>
+        </div>
 
-    
+      </div>
+
+      <!-- No Results -->
+      <div id="no-results" class="d-none text-center py-5">
+        <i class="fa-solid fa-magnifying-glass mb-3" style="font-size:2.5rem;color:var(--text-muted);opacity:0.5;"></i>
+        <p class="mb-0" style="color:var(--text-muted);">Tidak ada laporan yang ditemukan.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── MODAL: Tambah Laporan ──────────────────────────────── -->
+  <div class="modal fade" id="reportModal" tabindex="-1"
+    aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="reportModalLabel">
+            <i class="fa-solid fa-pen-to-square me-2"></i> Tambah Laporan
+          </h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+
+        <form id="reportForm" action="" method="post" enctype="multipart/form-data" novalidate>
+          <div class="modal-body">
+
+            <div class="mb-3">
+              <label class="form-label" for="report-title">Judul Laporan <span style="color:#f87171;">*</span></label>
+              <input class="form-control" type="text" name="title" id="report-title"
+                placeholder="Contoh: AC kelas X rusak..." required maxlength="120">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="report-category">Kategori <span style="color:#f87171;">*</span></label>
+              <select class="form-select" name="category" id="report-category" required>
+                <option value="" selected disabled>Pilih kategori...</option>
+                <option value="akademik">Akademik</option>
+                <option value="fasilitas">Fasilitas</option>
+                <option value="non-akademik">Non-Akademik / Anonim</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="report-location">Lokasi Kejadian</label>
+              <input class="form-control" type="text" name="location" id="report-location"
+                placeholder="Contoh: Ruang kelas X-1, Lantai 2...">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="report-description">Deskripsi Laporan <span style="color:#f87171;">*</span></label>
+              <textarea class="form-control" rows="4" name="description" id="report-description"
+                placeholder="Jelaskan masalah yang terjadi secara detail..." required></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="report-photo">Upload Foto <span style="color:var(--text-muted);font-weight:400;">(opsional)</span></label>
+              <input class="form-control" type="file" name="photo" id="report-photo" accept="image/*">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">
+              <i class="fa-solid fa-xmark me-1"></i> Tutup
+            </button>
+            <button type="submit" class="btn btn-primary" id="submit-report-btn">
+              Kirim Laporan <i class="fa-solid fa-paper-plane ms-1"></i>
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row justify-content-between gy-4">
+
+        <div class="col-md-4">
+          <div class="footer-brand">
+            <img src="./assets/images/idnlogo.png" alt="Logo" width="32">
+            <h3>IDN E-Report</h3>
+          </div>
+          <p>Sampaikan setiap kekurangan sarana dan prasarana sekolah secara transparan untuk perbaikan yang lebih baik.</p>
+        </div>
+
+        <div class="col-md-2">
+          <h4>Menu</h4>
+          <div class="footer-links">
+            <a href="index.html#hero">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#service">Services</a>
+            <a href="reports.html">All Reports</a>
+            <a href="index.html#faq">FAQ</a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <h4>Kontak</h4>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:reikeren@gmail.com">reikeren@gmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:0676767676767">0676767676767</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Jl. Milano Raya, BSD City</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 <span>Rei</span>. All rights reserved. &mdash; IDN E-Report</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 60 });
+
+    // Navbar scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ── Filter & Sort ────────────────────────────────────────
+    const searchInput    = document.getElementById('search-input');
+    const categoryFilter = document.getElementById('category-filter');
+    const sortFilter     = document.getElementById('sort-filter');
+    const filterButton   = document.getElementById('filter-button');
+    const reportsGrid    = document.getElementById('reports-grid');
+    const noResults      = document.getElementById('no-results');
+    const visibleCount   = document.getElementById('visible-count');
+
+    function filterReports() {
+      const keyword  = searchInput.value.toLowerCase().trim();
+      const category = categoryFilter.value;
+      const reports  = [...document.querySelectorAll('.report-item')];
+
+      // Sort
+      reports.sort((a, b) => {
+        if (sortFilter.value === 'popular') {
+          return Number(b.dataset.popularity) - Number(a.dataset.popularity);
+        }
+        const da = new Date(a.dataset.date), db = new Date(b.dataset.date);
+        return sortFilter.value === 'oldest' ? da - db : db - da;
+      });
+
+      let visible = 0;
+      reports.forEach(r => {
+        const matchKey = r.dataset.title.toLowerCase().includes(keyword);
+        const matchCat = category === 'all' || r.dataset.category === category;
+        const show = matchKey && matchCat;
+        r.classList.toggle('d-none', !show);
+        reportsGrid.appendChild(r);
+        if (show) visible++;
+      });
+
+      noResults.classList.toggle('d-none', visible !== 0);
+      visibleCount.textContent = visible;
+    }
+
+    filterButton.addEventListener('click', filterReports);
+    searchInput.addEventListener('input', filterReports);
+    categoryFilter.addEventListener('change', filterReports);
+    sortFilter.addEventListener('change', filterReports);
+
+    // ── Form validation (simple) ─────────────────────────────
+    document.getElementById('reportForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!this.checkValidity()) {
+        this.classList.add('was-validated');
+        return;
+      }
+      const btn = document.getElementById('submit-report-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Mengirim...';
+      setTimeout(() => {
+        bootstrap.Modal.getInstance(document.getElementById('reportModal')).hide();
+        this.reset();
+        this.classList.remove('was-validated');
+        btn.disabled = false;
+        btn.innerHTML = 'Kirim Laporan <i class="fa-solid fa-paper-plane ms-1"></i>';
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>
