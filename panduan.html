@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panduan Pengguna | IDN E-Report</title>
+  <meta name="description"
+    content="Panduan lengkap cara menggunakan IDN E-Report — platform pengaduan resmi IDN Boarding School. Pelajari cara membuat laporan, memantau status, dan kategori pengaduan.">
+  <link rel="shortcut icon" href="./assets/images/idnlogo.png" type="image/x-icon">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/style.css">
+
+  <style>
+    /* ── Panduan-specific styles ─────────────────────────── */
+
+    .panduan-header {
+      padding: 4rem 0 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .panduan-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .panduan-header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .panduan-header p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    .panduan-toc {
+      position: sticky;
+      top: 88px;
+    }
+
+    .toc-card {
+      background: rgba(10, 20, 38, 0.8);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .toc-header {
+      background: rgba(7, 15, 28, 0.9);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.8rem 1.15rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .toc-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 1.15rem;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: background var(--transition), color var(--transition), padding-left var(--transition);
+    }
+
+    .toc-link:last-child {
+      border-bottom: none;
+    }
+
+    .toc-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--blue-light);
+      flex-shrink: 0;
+    }
+
+    .toc-link:hover,
+    .toc-link.active {
+      color: var(--blue-light);
+      background: rgba(59, 130, 246, 0.05);
+      padding-left: 1.4rem;
+    }
+
+    .toc-link.active .toc-num {
+      background: rgba(59, 130, 246, 0.25);
+    }
+
+    .guide-section {
+      scroll-margin-top: 96px;
+      margin-bottom: 2.5rem;
+    }
+
+    .guide-card {
+      background: rgba(10, 20, 38, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: clamp(1.75rem, 4vw, 2.75rem);
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+
+    .guide-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.3), transparent);
+    }
+
+    .guide-card:hover {
+      border-color: var(--border-glow);
+    }
+
+    .guide-section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .title-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.15));
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      color: var(--blue-light);
+      flex-shrink: 0;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-primary), var(--accent-indigo));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+      margin-top: 2px;
+    }
+
+    .step-content h6 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .step-content p {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .step-connector {
+      width: 1px;
+      height: 16px;
+      background: linear-gradient(to bottom, rgba(59, 130, 246, 0.4), transparent);
+      margin-left: 15px;
+    }
+
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .cat-card {
+      background: rgba(10, 22, 44, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-align: center;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .cat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-glow);
+      box-shadow: 0 12px 30px rgba(5, 13, 26, 0.5), 0 0 20px rgba(59, 130, 246, 0.08);
+    }
+
+    .cat-card .cat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin: 0 auto 1rem;
+    }
+
+    .cat-card h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .cat-card p {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .status-flow {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.4rem 0.9rem;
+      border-radius: 99px;
+      letter-spacing: 0.04em;
+    }
+
+    .status-pill.diterima {
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: var(--blue-soft);
+    }
+
+    .status-pill.diproses {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fde68a;
+    }
+
+    .status-pill.selesai {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #86efac;
+    }
+
+    .status-arrow {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+    }
+
+    .info-box {
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      margin-top: 1.25rem;
+    }
+
+    .info-box.tip {
+      background: rgba(59, 130, 246, 0.07);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .info-box.warn {
+      background: rgba(245, 158, 11, 0.07);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .info-box.success {
+      background: rgba(34, 197, 94, 0.07);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+
+    .info-box i { font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
+    .info-box.tip i { color: var(--blue-light); }
+    .info-box.warn i { color: #fde68a; }
+    .info-box.success i { color: #86efac; }
+
+    .info-box p {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .info-box strong { color: var(--text-primary); }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .check-icon {
+      color: #86efac;
+      font-size: 0.75rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .mini-faq-item {
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.9rem 0;
+    }
+
+    .mini-faq-item:first-child { padding-top: 0; }
+    .mini-faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .mini-faq-item .q {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .mini-faq-item .a {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .panduan-cta {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(99, 102, 241, 0.12));
+      border: 1px solid rgba(96, 165, 250, 0.25);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+
+    .panduan-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.5), transparent);
+    }
+
+    .panduan-cta h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .panduan-cta p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+  <nav class="navbar navbar-expand-lg" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="./assets/images/idnlogo.png" alt="IDN Logo" width="28">
+        IDN E-Report <span class="brand-dot"></span>
+      </a>
+      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-1 text-center pt-4 pt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#service">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="reports.html">All Reports</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link active" href="panduan.html">Panduan</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-primary btn-sm px-3" href="reports.html">
+              <i class="fa-solid fa-plus me-1"></i>Buat Laporan
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HEADER ────────────────────────────────────────── -->
+  <div class="panduan-header">
+    <div class="container" style="position:relative;z-index:1;">
+      <span class="section-badge" data-aos="fade-up" data-aos-duration="600">Panduan Pengguna</span>
+      <h1 data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+        Cara Menggunakan<br>
+        <span class="gradient-text">IDN E-Report</span>
+      </h1>
+      <p data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
+        Panduan lengkap untuk membuat laporan, memantau status pengaduan,
+        dan memahami fitur-fitur yang tersedia di platform ini.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── MAIN CONTENT ───────────────────────────────────────── -->
+  <div class="container pb-5">
+    <div class="row g-4 align-items-start">
+
+      <!-- Sidebar TOC -->
+      <div class="col-lg-3 d-none d-lg-block" data-aos="fade-right" data-aos-duration="700">
+        <div class="panduan-toc">
+          <div class="toc-card">
+            <div class="toc-header">Daftar Isi</div>
+            <a class="toc-link active" href="#langkah-membuat">
+              <span class="toc-num">1</span>Membuat Laporan
+            </a>
+            <a class="toc-link" href="#kategori">
+              <span class="toc-num">2</span>Kategori Pengaduan
+            </a>
+            <a class="toc-link" href="#pantau-status">
+              <span class="toc-num">3</span>Memantau Status
+            </a>
+            <a class="toc-link" href="#laporan-anonim">
+              <span class="toc-num">4</span>Laporan Anonim
+            </a>
+            <a class="toc-link" href="#tips-laporan">
+              <span class="toc-num">5</span>Tips Laporan Efektif
+            </a>
+            <a class="toc-link" href="#mini-faq">
+              <span class="toc-num">6</span>FAQ Cepat
+            </a>
+          </div>
+          <div class="mt-3 text-center">
+            <a href="#" class="more-link" style="justify-content:center;font-size:0.78rem;margin-top:0;">
+              <i class="fa-solid fa-arrow-up"></i> Kembali ke atas
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="col-lg-9">
+
+        <!-- 1. Membuat Laporan -->
+        <div class="guide-section" id="langkah-membuat" data-aos="fade-up" data-aos-duration="700">
+          <div class="guide-card">
+            <h2 class="guide-section-title">
+              <span class="title-icon"><i class="fa-solid fa-file-pen"></i></span>
+              Cara Membuat Laporan
+            </h2>
+            <div class="steps-list">
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h6>Buka Halaman All Reports</h6>
+                  <p>Klik tombol <strong style="color:var(--blue-soft);">"Buat Laporan"</strong> di navbar atau langsung buka halaman <a href="reports.html" style="color:var(--blue-light);font-weight:600;">All Reports</a>. Ini adalah pusat semua pengaduan yang masuk ke sistem.</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h6>Klik "+ Tambah Laporan"</h6>
+                  <p>Pada halaman All Reports, klik tombol <strong style="color:var(--blue-soft);">+ Tambah Laporan</strong> di bagian toolbar. Sebuah formulir akan muncul di layar Anda.</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h6>Isi Judul Laporan</h6>
+                  <p>Tulis judul yang singkat namun jelas — misalnya <em>"AC Ruang Kelas 7A Tidak Menyala"</em>. Hindari judul yang terlalu umum seperti "Ada masalah".</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h6>Pilih Kategori</h6>
+                  <p>Pilih salah satu dari tiga kategori: <strong style="color:var(--blue-soft);">Akademik</strong>, <strong style="color:#a5b4fc;">Fasilitas</strong>, atau <strong style="color:#c4b5fd;">Non-Akademik / Anonim</strong>. Kategori membantu laporan diteruskan ke tim yang tepat.</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="step-item">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  <h6>Tulis Deskripsi Lengkap</h6>
+                  <p>Jelaskan masalah secara detail — kapan terjadi, di mana tepatnya, seberapa parah dampaknya, dan sudah berapa lama. Semakin rinci, semakin cepat tim bisa menangani.</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="step-item">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                  <h6>Unggah Foto (Opsional tapi Dianjurkan)</h6>
+                  <p>Lampirkan foto yang relevan untuk memperkuat laporan Anda. Foto membantu tim teknis memahami kondisi lapangan secara langsung.</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="step-item">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                  <h6>Klik "Kirim Laporan"</h6>
+                  <p>Setelah semua terisi, klik <strong style="color:var(--blue-soft);">Kirim Laporan</strong>. Laporan Anda akan langsung masuk ke sistem dan tim akan segera memverifikasi.</p>
+                </div>
+              </div>
+            </div>
+            <div class="info-box tip mt-4">
+              <i class="fa-solid fa-circle-info"></i>
+              <p><strong>Berapa lama setelah mengirim?</strong> Respons awal biasanya diberikan dalam <strong>1&times;24 jam kerja</strong>. Pastikan deskripsi Anda lengkap agar proses verifikasi lebih cepat.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Kategori -->
+        <div class="guide-section" id="kategori" data-aos="fade-up" data-aos-duration="700">
+          <div class="guide-card">
+            <h2 class="guide-section-title">
+              <span class="title-icon"><i class="fa-solid fa-tags"></i></span>
+              Kategori Pengaduan
+            </h2>
+            <p style="font-size:0.87rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.75;">
+              Setiap laporan harus dikategorikan agar dapat diteruskan ke tim yang berwenang. Pilih kategori yang paling sesuai dengan masalah yang Anda laporkan.
+            </p>
+            <div class="cat-grid">
+              <div class="cat-card">
+                <div class="cat-icon" style="background:linear-gradient(135deg,rgba(59,130,246,0.2),rgba(99,102,241,0.15));border:1px solid rgba(59,130,246,0.25);color:var(--blue-light);">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h6>Akademik</h6>
+                <p>Masalah terkait kegiatan belajar mengajar — nilai, tugas, pengajaran, atau kurikulum.</p>
+              </div>
+              <div class="cat-card">
+                <div class="cat-icon" style="background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(139,92,246,0.15));border:1px solid rgba(99,102,241,0.25);color:var(--accent-indigo);">
+                  <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+                <h6>Fasilitas</h6>
+                <p>Kerusakan sarana dan prasarana — AC, lampu, meja, toilet, atau fasilitas asrama.</p>
+              </div>
+              <div class="cat-card">
+                <div class="cat-icon" style="background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(168,85,247,0.15));border:1px solid rgba(139,92,246,0.25);color:var(--accent-purple);">
+                  <i class="fa-solid fa-user-secret"></i>
+                </div>
+                <h6>Non-Akademik / Anonim</h6>
+                <p>Masalah sensitif yang ingin dilaporkan tanpa mengungkapkan identitas pelapor.</p>
+              </div>
+            </div>
+            <div class="info-box warn">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p><strong>Tidak yakin pilih kategori mana?</strong> Pilih yang paling mendekati. Tim kami akan melakukan reklasifikasi jika diperlukan — yang terpenting laporan tetap masuk ke sistem.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Pantau Status -->
+        <div class="guide-section" id="pantau-status" data-aos="fade-up" data-aos-duration="700">
+          <div class="guide-card">
+            <h2 class="guide-section-title">
+              <span class="title-icon"><i class="fa-solid fa-chart-line"></i></span>
+              Memantau Status Laporan
+            </h2>
+            <p style="font-size:0.87rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.75;">
+              Setiap laporan memiliki status yang diperbarui oleh tim pengelola. Berikut adalah alur status dari awal hingga selesai:
+            </p>
+            <div class="status-flow mb-4">
+              <span class="status-pill diterima"><i class="fa-solid fa-circle fa-xs"></i> Diterima</span>
+              <i class="fa-solid fa-chevron-right status-arrow"></i>
+              <span class="status-pill diproses"><i class="fa-solid fa-circle fa-xs"></i> Sedang Diproses</span>
+              <i class="fa-solid fa-chevron-right status-arrow"></i>
+              <span class="status-pill selesai"><i class="fa-solid fa-circle fa-xs"></i> Selesai</span>
+            </div>
+            <div class="steps-list">
+              <div class="step-item">
+                <div class="step-number" style="background:linear-gradient(135deg,var(--blue-primary),#60a5fa);">
+                  <i class="fa-solid fa-inbox" style="font-size:0.65rem;"></i>
+                </div>
+                <div class="step-content">
+                  <h6>Diterima</h6>
+                  <p>Laporan berhasil masuk ke sistem dan sedang menunggu verifikasi awal oleh tim admin. Biasanya berlangsung dalam 1&times;24 jam kerja.</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="step-item">
+                <div class="step-number" style="background:linear-gradient(135deg,#d97706,#fbbf24);">
+                  <i class="fa-solid fa-gear" style="font-size:0.65rem;"></i>
+                </div>
+                <div class="step-content">
+                  <h6>Sedang Diproses</h6>
+                  <p>Laporan telah diverifikasi dan sudah diteruskan ke divisi yang berwenang. Tim sedang bekerja untuk menangani masalah yang dilaporkan.</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="step-item">
+                <div class="step-number" style="background:linear-gradient(135deg,#16a34a,#4ade80);">
+                  <i class="fa-solid fa-check" style="font-size:0.65rem;"></i>
+                </div>
+                <div class="step-content">
+                  <h6>Selesai</h6>
+                  <p>Masalah telah ditangani. Anda bisa melihat ringkasan tindak lanjut di halaman detail laporan. Terima kasih atas kontribusi Anda.</p>
+                </div>
+              </div>
+            </div>
+            <div class="info-box tip mt-3">
+              <i class="fa-solid fa-circle-info"></i>
+              <p>Untuk melihat status laporan, buka halaman <a href="reports.html" style="color:var(--blue-light);font-weight:600;">All Reports</a> dan klik pada laporan yang ingin dipantau. Detail lengkap tersedia di halaman detail laporan.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Laporan Anonim -->
+        <div class="guide-section" id="laporan-anonim" data-aos="fade-up" data-aos-duration="700">
+          <div class="guide-card">
+            <h2 class="guide-section-title">
+              <span class="title-icon" style="background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(168,85,247,0.15));border-color:rgba(139,92,246,0.25);color:var(--accent-purple);">
+                <i class="fa-solid fa-user-secret"></i>
+              </span>
+              Laporan Anonim
+            </h2>
+            <p style="font-size:0.87rem;color:var(--text-secondary);margin-bottom:1.25rem;line-height:1.75;">
+              IDN E-Report menyediakan opsi pelaporan anonim untuk masalah yang bersifat sensitif. Fitur ini dirancang agar Anda bisa melapor tanpa rasa khawatir.
+            </p>
+            <ul class="checklist">
+              <li>
+                <i class="fa-solid fa-circle-check check-icon"></i>
+                <span>Identitas pelapor <strong style="color:var(--text-primary);">tidak dicatat</strong> dan tidak dapat dilacak oleh siapapun, termasuk admin.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check check-icon"></i>
+                <span>Cocok untuk melaporkan masalah seperti perundungan, ketidaknyamanan sosial, atau situasi sensitif lainnya.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check check-icon"></i>
+                <span>Laporan anonim tetap ditangani dengan serius dan prioritas yang sama seperti laporan biasa.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check check-icon"></i>
+                <span>Pilih kategori <strong style="color:var(--text-primary);">"Non-Akademik / Anonim"</strong> saat membuat laporan untuk mengaktifkan mode anonim.</span>
+              </li>
+            </ul>
+            <div class="info-box success mt-3">
+              <i class="fa-solid fa-shield-halved"></i>
+              <p><strong>Kerahasiaan dijamin.</strong> Tidak ada data pribadi yang diminta saat memilih kategori anonim. Anda tetap bisa menyertakan foto sebagai bukti tanpa khawatir identitas terungkap.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Tips -->
+        <div class="guide-section" id="tips-laporan" data-aos="fade-up" data-aos-duration="700">
+          <div class="guide-card">
+            <h2 class="guide-section-title">
+              <span class="title-icon" style="background:linear-gradient(135deg,rgba(234,179,8,0.15),rgba(251,191,36,0.1));border-color:rgba(234,179,8,0.25);color:#fde68a;">
+                <i class="fa-solid fa-lightbulb"></i>
+              </span>
+              Tips Laporan yang Efektif
+            </h2>
+            <p style="font-size:0.87rem;color:var(--text-secondary);margin-bottom:1.25rem;line-height:1.75;">
+              Laporan yang baik akan diproses lebih cepat. Berikut hal-hal yang perlu diperhatikan:
+            </p>
+            <ul class="checklist">
+              <li>
+                <i class="fa-solid fa-circle-check check-icon"></i>
+                <span><strong style="color:var(--text-primary);">Judul yang spesifik</strong> — Sebutkan lokasi dan jenis masalah. Contoh: <em>"Keran Kamar Mandi Asrama Barat Lt. 2 Bocor"</em>.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check check-icon"></i>
+                <span><strong style="color:var(--text-primary);">Sertakan waktu kejadian</strong> — Kapan pertama kali masalah ini terjadi? Ini membantu tim memahami urgensi.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check check-icon"></i>
+                <span><strong style="color:var(--text-primary);">Dampak yang dirasakan</strong> — Jelaskan bagaimana masalah ini mempengaruhi aktivitas sehari-hari Anda atau orang lain.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check check-icon"></i>
+                <span><strong style="color:var(--text-primary);">Foto yang relevan</strong> — Satu foto yang jelas lebih baik dari banyak foto yang buram. Pastikan pencahayaan cukup.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check check-icon"></i>
+                <span><strong style="color:var(--text-primary);">Satu laporan per masalah</strong> — Jangan menggabungkan beberapa masalah dalam satu laporan agar penanganannya lebih terstruktur.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check check-icon"></i>
+                <span><strong style="color:var(--text-primary);">Gunakan bahasa yang sopan</strong> — Laporan yang disampaikan dengan baik lebih mudah ditindaklanjuti dan mencerminkan profesionalisme pelapor.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6. Mini FAQ -->
+        <div class="guide-section" id="mini-faq" data-aos="fade-up" data-aos-duration="700">
+          <div class="guide-card">
+            <h2 class="guide-section-title">
+              <span class="title-icon"><i class="fa-solid fa-circle-question"></i></span>
+              FAQ Cepat
+            </h2>
+            <div class="mini-faq-item">
+              <div class="q">Apakah saya bisa mengedit laporan setelah dikirim?</div>
+              <div class="a">Saat ini laporan yang sudah dikirim tidak dapat diedit secara mandiri. Jika ada koreksi penting, hubungi admin melalui email atau buat laporan baru dengan informasi yang lebih lengkap.</div>
+            </div>
+            <div class="mini-faq-item">
+              <div class="q">Berapa banyak laporan yang bisa saya kirim?</div>
+              <div class="a">Tidak ada batasan jumlah laporan. Namun pastikan setiap laporan adalah masalah yang nyata dan berbeda — mengirim laporan berulang untuk masalah yang sama tidak mempercepat proses penanganan.</div>
+            </div>
+            <div class="mini-faq-item">
+              <div class="q">Kenapa laporan saya belum direspons setelah lebih dari 24 jam?</div>
+              <div class="a">Beberapa laporan membutuhkan verifikasi lapangan sebelum status diperbarui. Jika sudah lebih dari 3 hari kerja tanpa respons, hubungi admin langsung melalui kontak di footer halaman ini.</div>
+            </div>
+            <div class="mini-faq-item">
+              <div class="q">Apakah laporan saya bisa dilihat oleh semua orang?</div>
+              <div class="a">Laporan yang masuk terlihat di halaman All Reports sebagai bagian dari transparansi sistem. Namun untuk laporan anonim, identitas pelapor tidak pernah ditampilkan.</div>
+            </div>
+            <div class="mini-faq-item">
+              <div class="q">Siapa yang menangani laporan saya?</div>
+              <div class="a">Laporan diverifikasi oleh tim admin IDN E-Report, kemudian diteruskan ke divisi yang berwenang — tim teknis untuk laporan fasilitas, atau pihak akademik untuk laporan terkait pembelajaran.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="panduan-cta" data-aos="fade-up" data-aos-duration="700">
+          <h3>Siap membuat laporan?</h3>
+          <p>Suara Anda penting untuk kemajuan IDN Boarding School. Jangan ragu untuk melaporkan setiap masalah yang Anda temui.</p>
+          <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="reports.html" class="btn btn-primary px-4" id="panduan-cta-buat">
+              <i class="fa-solid fa-plus me-2"></i>Buat Laporan Sekarang
+            </a>
+            <a href="index.html#faq" class="btn btn-outline-primary px-4" id="panduan-cta-faq">
+              Lihat FAQ Lengkap
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /col content -->
+    </div><!-- /row -->
+  </div><!-- /container -->
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row justify-content-between gy-4">
+        <div class="col-md-4">
+          <div class="footer-brand">
+            <img src="./assets/images/idnlogo.png" alt="Logo" width="32">
+            <h3>IDN E-Report</h3>
+          </div>
+          <p>Sampaikan setiap kekurangan sarana dan prasarana sekolah secara transparan.
+            Laporan Anda akan ditindaklanjuti untuk perbaikan yang lebih baik.</p>
+        </div>
+        <div class="col-md-2">
+          <h4>Menu</h4>
+          <div class="footer-links">
+            <a href="index.html#hero">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#service">Services</a>
+            <a href="reports.html">All Reports</a>
+            <a href="index.html#faq">FAQ</a>
+            <a href="panduan.html">Panduan</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h4>Kontak</h4>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:reikeren@gmail.com">reikeren@gmail.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:0676767676767">0676767676767</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Jl. Milano Raya, BSD City</span>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 <span>Rei</span>. All rights reserved. &mdash; IDN E-Report</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 60 });
+
+    // Navbar scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // TOC active state tracking
+    const guideSections = document.querySelectorAll('.guide-section[id]');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    const tocObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    guideSections.forEach(sec => tocObserver.observe(sec));
+  </script>
+
+</body>
+
+</html>
